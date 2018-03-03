@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "nyc mocha",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,9 @@
   },
   "homepage": "https://github.com/vhalbwachs/codecov-demo#readme",
   "devDependencies": {
-    "mocha": "^5.0.1"
+    "mocha": "*",
+    "nyc": "*",
+    "sinon": "*",
+    "chai": "*"
   }
 }
