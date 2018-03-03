@@ -1,0 +1,29 @@
+{
+  "name": "codecov-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "nyc mocha",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vhalbwachs/codecov-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vhalbwachs/codecov-demo/issues"
+  },
+  "homepage": "https://github.com/vhalbwachs/codecov-demo#readme",
+  "devDependencies": {
+    "mocha": "*",
+    "nyc": "*",
+    "sinon": "*",
+    "chai": "*"
+  }
+}
