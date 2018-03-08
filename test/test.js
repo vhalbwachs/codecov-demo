@@ -41,6 +41,11 @@ describe('utils', () => {
             expect(summed).to.equal(6);
         });
     });
+    describe('is true', () => {
+        it('should return true', () => {
+            expect(utils.isTrue(true)).to.be.true;
+        });
+    });
 });
 
 describe('algos', () => {
