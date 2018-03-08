@@ -33,4 +33,12 @@ describe('utils', () => {
             expect(utils.every(nums, isEven)).to.be.false;
         });
     });
+    describe('reduce', () => {
+        it('should reduce each item in the array, passing the memo and current item being iterated over', () => {
+            const nums = [1,2,3];
+            const sum = (a, b) => a + b;
+            const summed = utils.reduce(nums, sum, 0);
+            expect(summed).to.equal(6);
+        });
+    });
 });
