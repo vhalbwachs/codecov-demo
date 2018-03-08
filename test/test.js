@@ -50,3 +50,54 @@ describe('algos', () => {
         });
     });
 });
+
+describe('dates', () => {
+    const _ = require('lodash');
+    describe('is date', () => {
+        it('should determine if it is a date', () => {
+            expect(_.isDate(utils.date([2010, 1, 12]))).to.be.true;
+            expect(_.isDate(utils.date([2010, 1, 12, 1]))).to.be.true;
+            expect(_.isDate(utils.date("Aug 9, 1995"))).to.be.true;
+        });
+    });
+    describe('relative time', () => {
+        it('should descrive the relative time', () => {
+            expect(utils.relativeTime(1000 * 30)).to.equal("less than a minute");
+            expect(utils.relativeTime(1000 * 60)).to.equal("about a minute");
+            expect(utils.relativeTime(1000 * 60 * 5)).to.equal("5 minutes");
+            expect(utils.relativeTime(1000 * 60 * 60)).to.equal("about an hour");
+            expect(utils.relativeTime(1000 * 60 * 60 * 5)).to.equal("about 5 hours");
+            expect(utils.relativeTime(1000 * 60 * 60 * 24)).to.equal("a day");
+            expect(utils.relativeTime(1000 * 60 * 60 * 24 * 5)).to.equal("5 days");
+            expect(utils.relativeTime(1000 * 60 * 60 * 24 * 30)).to.equal("about a month");
+            expect(utils.relativeTime(1000 * 60 * 60 * 24 * 30 * 5)).to.equal("5 months");
+            expect(utils.relativeTime(1000 * 60 * 60 * 24 * 30 * 12)).to.equal("about a year");
+            expect(utils.relativeTime(1000 * 60 * 60 * 24 * 365 * 5)).to.equal("5 years");
+        });
+    });
+    describe('format date', () => {
+        it('should format the date', () => {
+            const dateTest = new Date(2010, 1, 14, 15, 25, 50, 125);
+            expect(utils.formatDate([2010, 1, 14, 15, 25, 50, 125], "dddd, MMMM Do YYYY, h:mm:ss a")).to.equal("Sunday, February 14th 2010, 3:25:50 pm");
+            expect(utils.formatDate([2010, 1, 14, 15, 25, 50, 125], "ddd, hA")).to.equal("Sun, 3PM");
+            expect(utils.formatDate(dateTest, "M Mo MM MMMM MMM")).to.equal("2 2nd 02 February Feb");
+            expect(utils.formatDate(dateTest, "YYYY YY")).to.equal("2010 10");
+            expect(utils.formatDate(dateTest, "D Do DD")).to.equal("14 14th 14");
+            expect(utils.formatDate(dateTest, "d do dddd ddd")).to.equal("0 0th Sunday Sun");
+            expect(utils.formatDate(dateTest, "DDD DDDo DDDD")).to.equal("45 45th 045");
+            expect(utils.formatDate(dateTest, "w wo ww")).to.equal("8 8th 08");
+            expect(utils.formatDate(dateTest, "h hh")).to.equal("3 03");
+            expect(utils.formatDate(dateTest, "H HH")).to.equal("15 15");
+            expect(utils.formatDate(dateTest, "m mm")).to.equal("25 25");
+            expect(utils.formatDate(dateTest, "s ss")).to.equal("50 50");
+            expect(utils.formatDate(dateTest, "a A")).to.equal("pm PM");
+            expect(utils.formatDate(dateTest, "t\\he DDDo \\d\\ay of t\\he ye\\ar")).to.equal("the 45th day of the year");
+        });
+    });
+    describe('from now', () => {
+        it('should say how much time from now', () => {
+            expect(utils.fromNow(30000, 0)).to.equal("in less than a minute");
+            expect(utils.fromNow(0, 30000)).to.equal("less than a minute ago");
+        });
+    });
+});
