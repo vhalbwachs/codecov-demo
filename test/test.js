@@ -13,21 +13,4 @@ describe('utils', () => {
             expect(callback.getCall(2).args).to.deep.equal(['c', 2, letters]);
         });
     });
-
-    describe('map', () => {
-        it('should create a new array of values by running each element in collection thru the callback', () => {
-            const numbers = [1,2,3];
-            const doubled = utils.map(numbers, n => n * 2);
-            expect(numbers).to.deep.equal([1,2,3]);
-            expect(doubled).to.deep.equal([2,4,6]);
-        });
-    });
-
-    describe('flatten', () => {
-        it('should deeply flatten a nested array', () => {
-            const nested = [1,2,3];
-            const flattened = utils.flatten(nested);
-            expect(nested).to.deep.equal([1,2,3]);
-        });
-    });
 });
