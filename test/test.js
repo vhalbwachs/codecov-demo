@@ -20,4 +20,17 @@ describe('utils', () => {
             expect(doubled).to.deep.equal([2,4,6]);
         });
     });
+    describe('every', () => {
+        it('should return true if all items in the collection pass the predicate', () => {
+            const nums = [2, 4, 6];
+            const isEven = n => n % 2 === 0;
+            expect(utils.every(nums, isEven)).to.be.true;
+        });
+
+        it('should return false if any of the items in the collection pass the predicate', () => {
+            const nums = [2, 3, 4];
+            const isEven = n => n % 2 === 0;
+            expect(utils.every(nums, isEven)).to.be.false;
+        });
+    });
 });
