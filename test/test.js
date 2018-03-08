@@ -13,4 +13,11 @@ describe('utils', () => {
             expect(callback.getCall(2).args).to.deep.equal(['c', 2, letters]);
         });
     });
+    describe('map', () => {
+        it('should iterate over each item in the array, producing a new array of values', () => {
+            const nums = [1,2,3];
+            const doubled = utils.map(nums, n => n * 2);
+            expect(doubled).to.deep.equal([2,4,6]);
+        });
+    });
 });
