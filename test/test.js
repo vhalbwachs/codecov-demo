@@ -30,7 +30,7 @@ describe('utils', () => {
             expect(nested).to.deep.equal([1,2,3]);
         });
     });
-    descrive('every', () => {
+    describe('every', () => {
         it('should return true if every item in the collection passes the predicate', () => {
             const evens = [2,4,6];
             const evensAndOdds = [1,2,3];
