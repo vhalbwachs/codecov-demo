@@ -30,4 +30,15 @@ describe('utils', () => {
             expect(nested).to.deep.equal([1,2,3]);
         });
     });
+    descrive('every', () => {
+        it('should return true if every item in the collection passes the predicate', () => {
+            const evens = [2,4,6];
+            const evensAndOdds = [1,2,3];
+            function isEven(n) {
+                return n % 2 === 0;
+            }
+            expect(utils.every(evens, isEven)).to.be.true;
+            expect(utils.every(evensAndOdds, isEven)).to.be.false;
+        });
+    });
 });
