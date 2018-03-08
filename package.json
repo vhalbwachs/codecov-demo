@@ -21,9 +21,12 @@
   },
   "homepage": "https://github.com/vhalbwachs/codecov-demo#readme",
   "devDependencies": {
+    "chai": "*",
     "mocha": "*",
     "nyc": "*",
-    "sinon": "*",
-    "chai": "*"
+    "sinon": "*"
+  },
+  "dependencies": {
+    "lodash": "^4.17.5"
   }
 }
