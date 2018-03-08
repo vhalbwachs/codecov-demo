@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 const sinon = require('sinon');
-const { utils } = require('../lib');
+const { utils, algos } = require('../lib');
 
 describe('utils', () => {
     describe('each', () => {
@@ -39,6 +39,14 @@ describe('utils', () => {
             const sum = (a, b) => a + b;
             const summed = utils.reduce(nums, sum, 0);
             expect(summed).to.equal(6);
+        });
+    });
+});
+
+describe('algos', () => {
+    describe('one away', () => {
+        it('should return true if 2 strings are one edit away', () => {
+            expect(algos.oneEditAway('ta', 'tar')).to.be.true;
         });
     });
 });
